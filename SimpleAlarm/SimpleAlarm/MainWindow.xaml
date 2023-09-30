@@ -5,21 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleAlarm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        FocusManager.FocusedElement="{Binding ElementName=TimeInput}"
+        Title="アラーム" Height="250" Width="300" ResizeMode="CanResizeWithGrip" Background="MistyRose" Loaded="Window_Loaded">
+    <Window.Resources>
+        <!--ラベルの既定スタイル-->
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="10,15,10,2" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10,15,10,0" />
+            <Setter Property="Padding" Value="10,0" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="137*"/>
-            <ColumnDefinition Width="263*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <Label Content="Label"/>
-            <ComboBox Width="120"/>
-            <Button Content="Button"/>
-            <Button Content="Button"/>
+            <Label Content="時刻(_T)" Target="{Binding ElementName=TimeInput}"/>
+            <ComboBox x:Name="TimeInput" Width="120" IsEditable="True" Margin="10,0,10,0" FontFamily="Consolas" HorizontalAlignment="Left">
+                <ComboBoxItem Content="09:00"/>
+                <ComboBoxItem Content="12:00"/>
+                <ComboBoxItem Content="15:00"/>
+                <ComboBoxItem Content="17:30"/>
+            </ComboBox>
+            <Button x:Name="AddButton" Content="追加(_A) →" IsDefault="True" Click="AddButton_Click"/>
+            <Button Content="削除(_R) ←" Click="Button_Click"/>
+            <Button x:Name="SaveButton" Content="アラーム一覧を保存(_S)" Click="SaveButton_Click"/>
         </StackPanel>
         <Grid Grid.Column="1" Grid.RowSpan="2">
             <Grid.RowDefinitions>

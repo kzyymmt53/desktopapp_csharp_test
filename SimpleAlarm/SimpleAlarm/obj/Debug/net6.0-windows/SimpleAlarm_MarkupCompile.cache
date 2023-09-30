@@ -1,5 +1,5 @@
 ﻿SimpleAlarm
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\admin\Desktop\desktopapp_csharp_test\SimpleAlarm\SimpleAlarm\App.xaml
 2-1237446308
 
-71722786174
+51048379819
 194183970531
 MainWindow.xaml;NotifyWindow.xaml;
 
-True
+False
 
